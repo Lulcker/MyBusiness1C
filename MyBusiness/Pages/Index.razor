@@ -1,0 +1,54 @@
+﻿@page "/"
+<title>Сделки</title>
+
+<TelerikGrid TItem="Deal"
+             Data="_data"
+             >
+    <GridToolBar>
+        <MudButton OnClick="async () => await SendToTeacherClick()"
+                   Variant="Variant.Filled"
+                   Color="Color.Tertiary"
+                   Disabled="!IsFilled"
+                   Style="margin: 5px auto">
+            Отправить
+        </MudButton>
+        <MudButton OnClick="async () => await FillTableClick()"
+                   Variant="Variant.Filled"
+                   Color="Color.Info"
+                   Disabled="IsFilled"
+                   Style="margin: 5px auto">
+            Заполнить
+        </MudButton>
+        <MudSpacer/>
+        <MudButton OnClick="async () => await ClearTableClick()"
+                   Variant="Variant.Filled"
+                   Color="Color.Error"
+                   Disabled="!IsFilled"
+                   Style="margin: 5px auto">
+            Очистить
+        </MudButton>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Title="Код" Field="@nameof(Deal.Code)">
+
+        </GridColumn>
+        <GridColumn Title="Дата создания" Field="@nameof(Deal.CreationDateTime)">
+
+        </GridColumn>
+        <GridColumn Title="Клиент" Field="@nameof(Deal.Client)">
+
+        </GridColumn>
+        <GridColumn Title="Наименование" Field="@nameof(Deal.Name)">
+
+        </GridColumn>
+        <GridColumn Title="Стадия" Field="@nameof(Deal.Stage)">
+
+        </GridColumn>
+        <GridColumn Title="Сумма" Field="@nameof(Deal.Amount)">
+
+        </GridColumn>
+        <GridColumn Title="Валюта" Field="@nameof(Deal.Currency)">
+
+        </GridColumn>
+    </GridColumns>
+</TelerikGrid>
